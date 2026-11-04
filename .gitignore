@@ -1,0 +1,13 @@
+# Experimental OCT datasets and local private information
+*.tif
+*.tiff
+*.zip
+*.dcm
+*.dicom
+*.nii
+*.nrrd
+*.ome.tif
+*.ome.tiff
+.env
+.env.*
+.DS_Store
