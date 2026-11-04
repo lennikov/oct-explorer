@@ -1,12 +1,17 @@
-# OCT Explorer annotated design map
+# OCT Explorer — implementation-verified feature specification
 
-This is a documented specification of previously reported OCT Volume Studio v5 capabilities. **The original implementation source is not present in this repository.**
+The previously missing OCT application has been recovered and its source is now stored in this repository. This document describes **functions actually found in the uploaded code**, not a proposed UI mockup.
 
-1. **Importer / acquisition grouping:** Read local TIFF folders and ZIP acquisitions; group associated B-scans, OCT volumes and en-face/fundus views by filenames and metadata. Prevent accidental mixing of eyes and timepoints.
-2. **Calibration and volume:** Parse X/Z image spacing; require manually supplied Y interscan spacing when absent. Report volumetric measurements only when X/Y/Z are known.
-3. **Viewer:** Browse B-scans alongside en-face images and 3D reconstructions, with orientation, red–cyan stereo and visual LUTs.
-4. **Quantification:** Lesion ROI and voxel integration with physical spacing, exportable CSV and saved/reloaded ROI settings. Report units, thresholds and calibration provenance.
-5. **Performance and exports:** PNG/WebM visual output, cancelable processing and conservative browser memory usage.
-6. **Data privacy:** Process images on the workstation; do not commit OCT scans, identifiers or specimen metadata.
+**Inputs:** local folders (including subfolders), ZIPs, classic TIFF strips (8/16-bit grayscale and RGB; uncompressed/PackBits/LZW/Deflate where supported), PNG and JPEG. Discovery groups image sequences using subfolder, filename prefix, numeric suffix width and type.
 
-Potential future features such as robust segmentation, automated drusen quantification and a formal scientific validation suite require independent testing and versioning. They should not be presented as delivered until verified in recovered source.
+**Viewer:** linked source fundus and B-scan acquisition traces for detected Heidelberg composites; acquired B-scan selection; orthogonal/en face planes; interactive 3D via WebGL 2 or CPU fallback; controls for contrast, render mode, palettes and red–cyan stereo.
+
+**Calibration:** offline scale-bar detection requires review; X/Z dimensions derived from source crop pixel spacing; Y scan-center interval separately entered. No quantitative volume should be reported with missing X/Y/Z spacing.
+
+**Lesion analysis:** hand-drawn polygons saved in original source coordinates, editable scan-by-scan with absent-scan markers. Cross-sectional area from shoelace formula; 3D volume by trapezoidal integration across annotated scan centers. Provides ROI project JSON and CSV tables. This does not automatically detect CNV, perfusion or retinal layers.
+
+**Exports:** single and paired PNG views with optional calibrated bars, annotations and color legend; seekable WebM rotation and sweep videos.
+
+**Known boundaries:** exported display intensities are not raw OCT reflectivity. No motion correction, clinical diagnosis or registration. Very large image sequences may be sampled; missing frames are not reconstructed. Test data and independent real-device verification are still required.
+
+Build provenance and module ownership are documented in SOURCE_MAP.md.

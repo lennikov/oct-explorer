@@ -1,13 +1,20 @@
-# Experimental OCT datasets and local private information
+# Experimental and potentially identifying files
 *.tif
 *.tiff
+*.ome.tif
+*.ome.tiff
 *.zip
 *.dcm
 *.dicom
 *.nii
 *.nrrd
-*.ome.tif
-*.ome.tiff
+*.png
+*.jpg
+*.jpeg
+*.webm
+*.mp4
 .env
 .env.*
+__pycache__/
+*.py[cod]
 .DS_Store

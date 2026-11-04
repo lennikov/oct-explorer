@@ -1,9 +1,20 @@
 {
   "project": "OCT Explorer / OCT Volume Studio",
-  "last_reported_build": "v5",
-  "last_reported_date": "2026-10-21",
-  "source_recovered": false,
-  "release_verified": false,
-  "reported_published_site": "https://lennikov-oct-volume-studio.savorygull2.chatgpt.site",
-  "next_step": "Recover OCT_Volume_Studio_v5.html or original project sources before publishing an executable v5 release"
+  "source_recovered": true,
+  "artifact": "OCT_Volume_Studio.html",
+  "release_copy": "releases/recovered-2026-11/OCT_Volume_Studio.html",
+  "original_uploaded_file": "OCT_Volume_Studio (2).html",
+  "source_sha256": "c5a461a270220110d535564cd84b3b7e7ce606a18b7aef900719f39544aab06c",
+  "source_size_bytes": 279419,
+  "version_declared_in_file": false,
+  "reported_project_version": "v5 in prior development history; not verified against deployed release",
+  "formal_github_release_created": false,
+  "tests_passed": [
+    "byte-exact source rebuild",
+    "Python build tests (2)",
+    "JavaScript syntax checks",
+    "isolated lesion-area and volume tests"
+  ],
+  "independent_dataset_validation": "pending",
+  "status": "recovered browser snapshot; not clinically validated"
 }
